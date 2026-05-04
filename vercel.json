@@ -1,1 +1,1 @@
-{ "buildCommand": "", "outputDirectory": "." }
+{"buildCommand": "npm run build", "outputDirectory": "dist"}
