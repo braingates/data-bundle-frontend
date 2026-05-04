@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5001";
+const API_BASE = "https://data-bundle-backend.onrender.com";
 
 // Generic request handler (centralized, safe)
 async function request(url, options = {}) {

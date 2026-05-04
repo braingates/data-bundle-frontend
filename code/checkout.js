@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resultBox.innerHTML = "⏳ Searching...";
 
     try {
-      const res = await fetch("http://localhost:5001/api/orders/track-order", {
+      const res = await fetch("https://data-bundle-backend.onrender.com/api/orders/track-order", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -267,19 +267,21 @@ window.addEventListener("load", async () => {
 
   try {
     const res = await fetch(
-      `http://localhost:5001/api/payments/verify/${reference}`
+      `https://data-bundle-backend.onrender.com/api/payments/verify/${reference}`
     );
 
     const data = await res.json();
 
     if (data.success) {
       console.log("Payment confirmed ✔");
+      alert("Payment successfull, order is being processed")
     } else {
       console.log("Payment failed ❌");
     }
-
+  
   } catch (err) {
     console.error("Verify error:", err);
+    alert("Payment initiation failed, please try again or contact support")
   }
 }, 5000);
 
@@ -292,7 +294,7 @@ async function startOrderTracking(reference) {
   const interval = setInterval(async () => {
     try {
       const res = await fetch(
-        `http://localhost:5001/api/orders/recent/${query}`
+        `https://data-bundle-backend.onrender.com/api/orders/recent/${query}`
       );
 
       const data = await res.json();
@@ -366,6 +368,20 @@ document.getElementById("editBtn")?.addEventListener("click", () => {
 
 
 
+
+
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const status = sessionStorage.getItem("orderStatus");
+    const message = sessionStorage.getItem("orderMessage");
+
+    if (!message) return;
+
+    alert(message); // replace with toast later
+
+    sessionStorage.removeItem("orderStatus");
+    sessionStorage.removeItem("orderMessage");
+  });
 
 
 
