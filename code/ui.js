@@ -96,7 +96,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 });
 */
 // ==========================
-// THEME SYSTEM (ROBUST)
+// THEME SYSTEM (ROBUST) THEMES
 // ==========================
 function applyTheme(theme) {
   if (theme === "light") {
