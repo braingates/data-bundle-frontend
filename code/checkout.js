@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const query = input.value.trim();
 
     if (!query) {
-      resultBox.innerHTML = "⚠️ Enter order ID or phone number";
+      resultBox.innerHTML = "⚠️ Enter order ID or phone number.";
       return;
     }
 
